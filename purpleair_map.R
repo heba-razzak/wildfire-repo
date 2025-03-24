@@ -10,10 +10,11 @@ library(leaflegend)    # Leaflet symbol legend
 library(htmlwidgets)   # HTML widgets
 library(PurpleAirAPI)  # PurpleAir Data API
 
-# Load environment variables from the .env file
-dotenv::load_dot_env(".env")
+# Access PurpleAir API key
+if (file.exists(".env")) {
+  dotenv::load_dot_env(".env")
+}
 
-# Access the API key
 api_key <- Sys.getenv("PURPLEAIR_API_KEY")
 
 # Download sensor metadata
